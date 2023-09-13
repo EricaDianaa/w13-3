@@ -3,9 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-        <div id="login" class="bg-dark h-100 p-5">
-     <div id="CIAO" class="d-flex flex-column justify-content-center border border-dark text-white text-center  border border-white rounded-5  m-5 p-3">
-     <h4>Inserisci nome</h4>0
+        <div id="login" class="h-100 p-5">
+     <div id="CIAO" class="d-flex flex-column justify-content-center border border-dark text-white text-center rounded-5 bg-dark  m-5 p-3">
+     <h4>Inserisci nome</h4>
      <asp:TextBox ID="Nome" runat="server"></asp:TextBox>
      <h4>Inserisci Password</h4>
      <asp:TextBox ID="Password" TextMode="Password" runat="server"></asp:TextBox>

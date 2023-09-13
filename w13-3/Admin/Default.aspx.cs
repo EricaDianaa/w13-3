@@ -45,6 +45,9 @@ namespace w13_3
 
         public static  List<WebForm1> ListOrdine=new List<WebForm1>();
         public static  List<WebForm1> ListPizza = new List<WebForm1>();
+
+
+
         public static List<double> ListAggiunte = new List<double>();
         public static  List<double> ListCostoPizza = new List<double>();
         public static  List<double> TotaleOrdine = new List<double>();
@@ -102,7 +105,6 @@ namespace w13_3
                     pizza.NomeAggiunta = CheckBoxList1.Items[i].Text;
                     pizza.PrezzoAggiunta = Convert.ToDouble(CheckBoxList1.Items[i].Value);
                     ListAggiunte.Add(prezzoaggiunta);
- 
                 }
             }
             
@@ -113,9 +115,9 @@ namespace w13_3
 
         protected void Ordine_Click(object sender, EventArgs e)
         {
-
-            for (int i = 0; i < ListAggiunte.Count; i++)
-            {
+         
+         for (int i = 0; i < ListAggiunte.Count; i++)
+            {            
                 sum += ListAggiunte[i];
             }
 
@@ -130,9 +132,18 @@ namespace w13_3
             for (int i = 0; i < TotaleOrdine.Count; i++)
             {
 
-                Total += TotaleOrdine[i];
+             Total += TotaleOrdine[i];
             }
-            Dettagli.InnerHtml = $"Il totale è: {Total}";
+
+            for (int i = 0; i < ListOrdine.Count; i++)
+            {
+              Dettagli.InnerHtml = $" <div class='bg-info m-2 rounded-4'><h3>Dettaglio Ordine</h3>" +
+                // $" <p>Pizze ordinate: {ListOrdine.Count}</p>"+
+                 $" <p>Pizza: {ListOrdine[i].NomePizza} Prezzo: {ListOrdine[i].Prezzo.ToString("c2")}</p>"+
+                 $" <p>{ListOrdine[i].NomeAggiunta}</p> <br> </div> <p class='bg-info m-2 rounded-4'>Il totale dell'ordine è: {Total.ToString("c2")}</p>";
+            }
+                
+
 
         }
 
