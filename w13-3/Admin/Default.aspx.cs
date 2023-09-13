@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -105,13 +106,18 @@ namespace w13_3
                     pizza.NomeAggiunta = CheckBoxList1.Items[i].Text;
                     pizza.PrezzoAggiunta = Convert.ToDouble(CheckBoxList1.Items[i].Value);
                     ListAggiunte.Add(prezzoaggiunta);
+                
                 }
             }
             
-            ListOrdine.Add(pizza);
+                    ListOrdine.Add(pizza);
                     ListCostoPizza.Add(pizza.Prezzo);
-          
-            }        
+         
+            foreach (ListItem item in CheckBoxList1.Items)
+            {
+                item.Selected = false;
+            }
+        }        
 
         protected void Ordine_Click(object sender, EventArgs e)
         {
@@ -147,7 +153,10 @@ namespace w13_3
 
         }
 
-
-        
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect(FormsAuthentication.LoginUrl);
+        }
     }
 }
