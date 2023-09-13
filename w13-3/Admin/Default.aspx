@@ -23,6 +23,7 @@
       <asp:ListItem Value="3"  Text="Speck (+3,00)" />
       <asp:ListItem Value="1"  Text=" Capperi(+1,00)" />
   </asp:CheckBoxList>
+
  
  <asp:Button ID="Aggiungi" runat="server" Text="Aggiungi piatto"  OnClick="Aggiungi_Click"/>
  <asp:Button ID="Ordine" runat="server" Text="Concludi ordini" Onclick="Ordine_Click"/>
